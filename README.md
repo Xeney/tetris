@@ -2,7 +2,7 @@
 
 Классическая головоломка с падающими блоками и современным дизайном.
 
-![Block Puzzle Master Screenshot](screenshot.png)
+![Block Puzzle Master Screenshot](screen/image_2026-03-28_14-28-19.png)
 
 ## 🚀 Быстрый старт
 
