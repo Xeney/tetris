@@ -1,0 +1,22 @@
+{
+    "name": "Block Puzzle Master",
+    "short_name": "Block Puzzle",
+    "description": "Классическая головоломка с падающими блоками. Строй линии, очищай поле, набирай очки! Несколько режимов сложности, система комбо, удержание фигур и многое другое.",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "meta": {
+        "game_url": "https://yandex.ru/games/app/XXXXXX",
+        "category": "puzzle",
+        "languages": ["ru"]
+    },
+    "resolution": {
+        "minWidth": 320,
+        "minHeight": 480
+    },
+    "start_screen": {
+        "splash_color": "#0a0a1a"
+    },
+    "background": {
+        "color": "#0a0a1a"
+    }
+}
