@@ -248,6 +248,9 @@ async function showRewardedAd(callback) {
 // ============================================
 
 function init() {
+    // Адаптируем размер canvas
+    resizeCanvas();
+    
     // Создаём пустое поле
     board = Array(ROWS).fill(null).map(() => Array(COLS).fill(null));
     
@@ -1177,6 +1180,38 @@ function setupEventListeners() {
 }
 
 // ============================================
+// АДАПТИВНОЕ МАСШТАБИРОВАНИЕ
+// ============================================
+
+let canvasScale = 1;
+
+function resizeCanvas() {
+    if (!canvas || !ctx) return;
+    
+    const maxWidth = window.innerWidth * 0.95;
+    const maxHeight = window.innerHeight - 280;
+    
+    const aspectRatio = COLS / ROWS;
+    
+    let newWidth = maxWidth;
+    let newHeight = newWidth / aspectRatio;
+    
+    if (newHeight > maxHeight) {
+        newHeight = maxHeight;
+        newWidth = newHeight * aspectRatio;
+    }
+    
+    newWidth = Math.min(newWidth, COLS * BLOCK_SIZE);
+    newHeight = newWidth / aspectRatio;
+    
+    canvas.style.width = `${newWidth}px`;
+    canvas.style.height = `${newHeight}px`;
+    
+    canvasScale = newWidth / (COLS * BLOCK_SIZE);
+    ctx.setTransform(canvasScale, 0, 0, canvasScale, 0, 0);
+}
+
+// ============================================
 // ЗАПУСК
 // ============================================
 
@@ -1186,6 +1221,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Настраиваем обработчики
     setupEventListeners();
+    
+    // Адаптивное масштабирование
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(resizeCanvas, 100);
+    });
+    
+    setTimeout(resizeCanvas, 100);
     
     // Отрисовка начнётся автоматически в gameLoop() после старта игры
 });
