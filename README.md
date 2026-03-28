@@ -2,7 +2,7 @@
 
 Классический Тетрис с современным дизайном и расширенными механиками.
 
-![Tetris Screenshot](screenshot.png)
+![Tetris Screenshot](screen/image_2026-03-28_14-28-19.png)
 
 ## 🚀 Быстрый старт
 
